@@ -422,6 +422,21 @@ function embedZupimages(messageContent) {
     });
 }
 
+function embedStreamable(messageContent) {
+    if (!messageContent) return;
+    messageContent.querySelectorAll('a[href*="streamable.com"]').forEach(a => {
+        const url = a.href;
+        const match = url.match(/^https:\/\/streamable\.com\/(?<id>.*)$/, 'i');
+        if (!match) return;
+        const iframe = document.createElement('iframe');
+        iframe.allow = 'autoplay';
+        iframe.allowFullscreen = true;
+        iframe.src = `https://streamable.com/e/${match.groups.id}`;
+        iframe.style = "width:100%;height:100%; min-height:500px; max-width: 700px; display:block;  margin: 0 auto;";
+        a.insertAdjacentElement('afterend', iframe); 
+    });
+}
+
 function handleLongMessages(allMessages) {
     allMessages.forEach(m => {
         const txtMsg = m.querySelector('.txt-msg.text-enrichi-forum');
