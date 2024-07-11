@@ -823,17 +823,26 @@ function refreshCollapsibleContentHeight(entity) {
 }
 
 function addSettingButton() {
-    function createDeboucledButton() {
+    function createDeboucledButton(hide = false) {
         let button = document.createElement('button');
         button.setAttribute('id', 'deboucled-option-button');
-        button.setAttribute('class', `btn deboucled-button deboucled-option-button${firstLaunch ? ' blinking' : ''}`);
+        button.setAttribute('class', `btn deboucled-button deboucled-option-button${firstLaunch ? ' blinking' : ''} ${hide ? 'd-none d-sm-block' : ''}  `);
         button.innerHTML = 'Déboucled';
         return button;
     }
 
     let blocMenu = document.querySelectorAll('.bloc-pre-right');
     if (blocMenu.length === 0) blocMenu = document.querySelectorAll('div:not(.pagination) > .action-right');
-    blocMenu.forEach(e => { e.prepend(createDeboucledButton()); });
+    let isFirst = true;
+
+    blocMenu.forEach(e => {
+      if (isFirst) {
+        e.prepend(createDeboucledButton(true));
+        isFirst = false;
+      } else {
+        e.prepend(createDeboucledButton());
+      }
+    });
 
     let optionOnclick = function (e) {
         e.preventDefault();
