@@ -827,7 +827,7 @@ function addSettingButton() {
         let button = document.createElement('button');
         button.setAttribute('id', 'deboucled-option-button');
         button.setAttribute('class', `btn deboucled-button deboucled-option-button${firstLaunch ? ' blinking' : ''} ${hide ? 'd-none d-sm-block' : ''}  `);
-        button.innerHTML = 'Déboucled';
+        button.innerHTML = 'Débouclix';
         return button;
     }
 
