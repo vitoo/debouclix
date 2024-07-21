@@ -2,8 +2,9 @@
 // @name        Déboucled
 // @namespace   deboucledjvcom
 // @version     2.52.4
-// @downloadURL https://github.com/vitoo/deboucled/raw/master/deboucled.user.js
-// @updateURL   https://github.com/vitoo/deboucled/raw/master/deboucled.meta.js
+// @require     file:///C:/laragon/www/deboucled/deboucled.user.js
+// @downloadURLz https://github.com/vitoo/deboucled/raw/master/deboucled.user.js
+// @updateURLz   https://github.com/vitoo/deboucled/raw/master/deboucled.meta.js
 // @author      Rand0max
 // @description Masque les topics, les sujets et les auteurs indésirables et vous sort de la boucle.
 // @icon        https://image.noelshack.com/fichiers/2021/38/6/1632606701-deboucled.png
