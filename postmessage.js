@@ -122,7 +122,7 @@ async function buildQuoteMessage(messageElement, selection) {
         }, 600);
     }
 
-    if (getAuthorFromMessageElem(messageElement).toLowerCase() == userPseudo?.toLowerCase()) {
+    if (getAuthorFromMessageElem(messageElement).toLowerCase() !== userPseudo?.toLowerCase()) {
         messageQuotesPendingArray.push(prepareMessageQuoteInfo(messageElement));
         await saveLocalStorage();
     }
