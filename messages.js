@@ -119,11 +119,11 @@ function addAuthorButtons(nearbyElement, author, optionBoucledUseJvarchive) {
     let boucledButton = buildBoucledAuthorButton(author, optionBoucledUseJvarchive);
     insertAfter(boucledButton, nearbyElement);
 
-    let jvArchiveProfilButton = buildJvArchiveProfilButton(author);
-    insertAfter(jvArchiveProfilButton, boucledButton);
+    // let jvArchiveProfilButton = buildJvArchiveProfilButton(author);
+    // insertAfter(jvArchiveProfilButton, boucledButton);
 
     let filterAuthorButton = buildFilterAuthorMessageButton(author);
-    insertAfter(filterAuthorButton, jvArchiveProfilButton);
+    insertAfter(filterAuthorButton, boucledButton);
 }
 
 function buildAuthorBadges(authorElement, author, messageOptions, title) {
