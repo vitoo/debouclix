@@ -399,6 +399,7 @@ function embedVocaroo(messageContent) {
         const iframe = document.createElement('iframe');
         iframe.width = 300;
         iframe.height = 60;
+        iframe.style = 'display: block;';
         iframe.frameBorder = 0;
         iframe.allow = 'autoplay';
         iframe.src = `https://vocaroo.com/embed/${match.groups.id}?autoplay=0`;
