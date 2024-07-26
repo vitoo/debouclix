@@ -1033,6 +1033,7 @@ async function init(currentPageType) {
 
 async function entryPoint() {
     while (!document.body) await sleep(50);
+    console.log('Déboucled loading...zz');
 
     let start = window.performance.now();
     try {

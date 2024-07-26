@@ -2,8 +2,8 @@
 // @name        Déboucled
 // @namespace   deboucledjvcom
 // @version     2.80.7
-// @downloadURL https://github.com/Rand0max/deboucled/raw/master/deboucled.user.js
-// @updateURL   https://github.com/Rand0max/deboucled/raw/master/deboucled.meta.js
+// @downloadURL https://github.com/vitoo/debouclix/raw/master/deboucled.user.js
+// @updateURL   https://github.com/vitoo/debouclix/raw/master/deboucled.meta.js
 // @author      Rand0max
 // @description Masque les topics, les sujets et les auteurs indésirables et vous sort de la boucle.
 // @icon        https://jvscript.fr/storage/images/deboucled.png
@@ -18,6 +18,7 @@
 // @match       http://www.jeuxvideo.com/sso/*
 // @match       https://www.jeuxvideo.com/sso/*
 // @connect     randomax.com
+// @connect     www.noelshack.com
 // @connect     jvarchive.net
 // @connect     jeuxvideo.com
 // @grant       GM_getValue

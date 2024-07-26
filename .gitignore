@@ -13,3 +13,4 @@ tampermonkey-reference.d.ts
 *.ps1
 /DECENSURED_IMPLEMENTATION.md
 /TODO.md
+.idea

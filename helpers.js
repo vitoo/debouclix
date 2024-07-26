@@ -41,6 +41,7 @@ const JVC_SEL = {
     topicTitleHeader: '.titleMessagesUsers__title, #bloc-title-forum',
     topicBlocFormulaire: '#forums-post-message-editor, #forums-post-topic-editor, #bloc-formulaire-forum',
     messageTopicInput: 'textarea[name="message_topic"], textarea[name="message_reponse"], #message_topic',
+    messagePrivateInput: 'textarea[name="message"], #message',
     // misc
     blocPreRight: '#js-list-message-tools-actions .buttonsNavbar, #js-list-topics-tools-actions, .bloc-pre-right',
 };
