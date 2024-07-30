@@ -12,3 +12,6 @@ tsconfig.json
 *.log
 *.ps1
 backend/**
+TODO
+.history
+register.php
