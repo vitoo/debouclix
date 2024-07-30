@@ -2441,3 +2441,7 @@ select.deboucled-dropdown::-ms-expand {
   margin-right: -4px;
   margin-bottom: -7px;
 }
+
+.bloc-rech-forum .form-rech-forum {  
+  width: auto !important;
+} 
