@@ -823,10 +823,19 @@ function refreshCollapsibleContentHeight(entity) {
 }
 
 function addSettingButton() {
+    //small button for mobile
+    function createSmallDeboucledButton() {
+        let button = document.createElement('button');
+        button.setAttribute('id', 'deboucled-option-button');
+        button.setAttribute('class', `btn deboucled-button deboucled-option-button${firstLaunch ? ' blinking' : ''}  d-block d-sm-none  '   `);
+        button.innerHTML = 'Déb';
+        button.style = "width: 33px; min-width: inherit;"
+        return button;
+    }
     function createDeboucledButton(hide = false) {
         let button = document.createElement('button');
         button.setAttribute('id', 'deboucled-option-button');
-        button.setAttribute('class', `btn deboucled-button deboucled-option-button${firstLaunch ? ' blinking' : ''} ${hide ? 'd-none d-sm-block' : ''}  `);
+        button.setAttribute('class', `btn deboucled-button deboucled-option-button${firstLaunch ? ' blinking' : ''}   d-none d-sm-block    `);
         button.innerHTML = 'Débouclix';
         return button;
     }
@@ -836,12 +845,9 @@ function addSettingButton() {
     let isFirst = true;
 
     blocMenu.forEach(e => {
-      if (isFirst) {
-        e.prepend(createDeboucledButton(true));
-        isFirst = false;
-      } else {
+        e.prepend(createSmallDeboucledButton());
         e.prepend(createDeboucledButton());
-      }
+
     });
 
     let optionOnclick = function (e) {
