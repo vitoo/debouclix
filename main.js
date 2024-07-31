@@ -969,7 +969,7 @@ async function entryPoint() {
         }
 
         updateUser();
-        suggestUpdate();
+        // suggestUpdate();
 
         displaySecret();
         displayAnnouncement();
