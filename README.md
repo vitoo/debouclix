@@ -36,7 +36,7 @@
 
 ### Étape 2 : Installez **Déboucled**
 
-- Installez **Déboucled** en [cliquant ici](https://github.com/Rand0max/deboucled/raw/master/deboucled.user.js) ou [ici](https://jvscript.fr/script/deboucled) puis cliquez sur le bouton "Installer" dans la fenêtre qui s'ouvre
+- Installez **Déboucled** en [cliquant ici](https://github.com/vitoo/deboucled/raw/master/deboucled.user.js) ou [ici](https://jvscript.fr/script/deboucled) puis cliquez sur le bouton "Installer" dans la fenêtre qui s'ouvre
 
 # Fonctionnalités :
 
