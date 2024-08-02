@@ -562,7 +562,7 @@ function handleTopicWhitelist() {
         await saveStorage();
         location.reload();
     };
-    titleBlocElement.prepend(whitelistButtonElement);
+    // titleBlocElement.prepend(whitelistButtonElement);
 
     return isWhitelisted;
 }

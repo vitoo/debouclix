@@ -471,10 +471,10 @@ blockquote .deboucled-highlighted {
   position: relative;
   width: 2.3rem;
 }
-.titre-bloc-forum span:first-child {
+/* .titre-bloc-forum span:first-child {
   font-size: unset;
   color: unset;
-}
+} */
 .topic-list .message .topic-title::before {
   position: static;
 }
