@@ -39,7 +39,7 @@ const storage_optionDisplayTopicMatches = 'deboucled_optionDisplayTopicMatches',
 const storage_optionClickToShowTopicMatches = 'deboucled_optionClickToShowTopicMatches', storage_optionClickToShowTopicMatches_default = false;
 const storage_optionRemoveUselessTags = 'deboucled_optionRemoveUselessTags', storage_optionRemoveUselessTags_default = false;
 const storage_optionMaxTopicCount = 'deboucled_optionMaxTopicCount', storage_optionMaxTopicCount_default = defaultTopicCount;
-const storage_optionAntiVinz = 'deboucled_optionAntiVinz', storage_optionAntiVinz_default = true;
+const storage_optionAntiVinz = 'deboucled_optionAntiVinz', storage_optionAntiVinz_default = false;
 const storage_optionBlAuthorIgnoreMp = 'deboucled_optionBlAuthorIgnoreMp', storage_optionBlAuthorIgnoreMp_default = false;
 const storage_optionBlSubjectIgnoreMessages = 'deboucled_optionBlSubjectIgnoreMessages', storage_optionBlSubjectIgnoreMessages_default = false;
 const storage_optionEnableTopicMsgCountThreshold = 'deboucled_optionEnableTopicMsgCountThreshold', storage_optionEnableTopicMsgCountThreshold_default = false;
@@ -47,17 +47,17 @@ const storage_optionTopicMsgCountThreshold = 'deboucled_optionTopicMsgCountThres
 const storage_optionReplaceResolvedPicto = 'deboucled_optionReplaceResolvedPicto', storage_optionReplaceResolvedPicto_default = false;
 const storage_optionDisplayTopicIgnoredCount = 'deboucled_optionDisplayTopicIgnoredCount', storage_optionDisplayTopicIgnoredCount_default = true;
 const storage_optionEnhanceQuotations = 'deboucled_optionEnhanceQuotations', storage_optionEnhanceQuotations_default = true;
-const storage_optionAntiSpam = 'deboucled_optionAntiSpam', storage_optionAntiSpam_default = true;
+const storage_optionAntiSpam = 'deboucled_optionAntiSpam', storage_optionAntiSpam_default = false;
 const storage_optionSmoothScroll = 'deboucled_optionSmoothScroll', storage_optionSmoothScroll_default = false;
-const storage_optionAntiLoopAiMode = 'deboucled_optionAntiLoopAiMode', storage_optionAntiLoopAiMode_default = 1;
+const storage_optionAntiLoopAiMode = 'deboucled_optionAntiLoopAiMode', storage_optionAntiLoopAiMode_default = 0;
 const storage_optionDisplayHotTopics = 'deboucled_optionDisplayHotTopics', storage_optionDisplayHotTopics_default = true;
 const storage_optionHideLongMessages = 'deboucled_optionHideLongMessages', storage_optionHideLongMessages_default = false;
 const storage_optionDisplayTitleSmileys = 'deboucled_optionDisplayTitleSmileys', storage_optionDisplayTitleSmileys_default = true;
 const storage_optionDisplayTopicAvatar = 'deboucled_optionDisplayTopicAvatar', storage_optionDisplayTopicAvatar_default = false;
 const storage_optionHideAvatarBorder = 'deboucled_optionHideAvatarBorder', storage_optionHideAvatarBorder_default = false;
-const storage_optionDecensureTwitter = 'deboucled_optionDecensureTwitter', storage_optionDecensureTwitter_default = false;
+const storage_optionDecensureTwitter = 'deboucled_optionDecensureTwitter', storage_optionDecensureTwitter_default = true;
 const storage_optionEmbedStreamable = 'deboucled_optionEmebedStreamable', storage_optionEmbedStreamable_default = true;
-const storage_optionDisplayBadges = 'deboucled_optionDisplayBadges', storage_optionDisplayBadges_default = true;
+const storage_optionDisplayBadges = 'deboucled_optionDisplayBadges', storage_optionDisplayBadges_default = false;
 const storage_optionGetMessageQuotes = 'deboucled_optionGetMessageQuotes', storage_optionGetMessageQuotes_default = true;
 const storage_optionFilterHotTopics = 'deboucled_optionFilterHotTopics', storage_optionFilterHotTopics_default = true;
 
