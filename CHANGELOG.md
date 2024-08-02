@@ -1,5 +1,19 @@
 # Changelog Déboucled
 
+## [2.52.5] (01/08/2024)
+
+- Twitter intégration dark theme 
+- Intégration des streamables, webm...
+- Affichages des mosaïques en une seule image 
+- Copier coller d'image dans les postes = upload vers noelshack
+- Auto refresh de la pagination des topics
+- Click sur le picto du topic = ouvre la dernière page du topic
+
+
+- Fix lien noelshack (le lien direct vers l'image)
+- Fix vue mobile
+
+
 ## [2.51.0] (17/02/2024)
 
 - Intégration de Zupimages
