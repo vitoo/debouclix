@@ -3,6 +3,7 @@ changelogs/**
 documentation/**
 resources/**
 .vscode/**
+.idea
 tampermonkey-module.d.ts
 tampermonkey-reference.d.ts
 tsconfig.json
