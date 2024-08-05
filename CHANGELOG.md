@@ -1,5 +1,10 @@
 # Changelog Déboucled
 
+## [2.52.7] (05/08/2024)
+
+- Affichage du changelog dans les settings
+- Intégration de youtube light (plus rapide que le youtube de Risibank)
+
 ## [2.52.5] (01/08/2024)
 
 - Twitter intégration dark theme 
