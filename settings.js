@@ -399,7 +399,7 @@ function buildSettingsPage() {
         html += `<div id="deboucled-changelog-section" class="deboucled-bloc-header deboucled-collapsible${sectionIsActive ? ' deboucled-collapsible-active' : ''}">CHANGELOG</div>`;
         html += `<div class="deboucled-bloc deboucled-collapsible-content" id="deboucled-options-collapsible-content" ${sectionIsActive ? collapsibleMaxHeight : ''}>`;
         html += '<div class="deboucled-setting-content">';
-        html += '<pre id="deboucled-changelog" style="white-space: pre-wrap; word-wrap: break-word; max-width: 100%;">';
+        html += '<pre id="deboucled-changelog" style="white-space: pre-wrap; word-wrap: break-word; max-width: 100%; min-height:100px">';
         html += '</pre>';
         html += '</div>';
         html += '</div>';
