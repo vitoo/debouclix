@@ -32,7 +32,7 @@ const storage_optionDisplayBlacklistTopicButton = 'deboucled_optionDisplayBlackl
 const storage_optionShowJvcBlacklistButton = 'deboucled_optionShowJvcBlacklistButton', storage_optionShowJvcBlacklistButton_default = false;
 const storage_optionFilterResearch = 'deboucled_optionFilterResearch', storage_optionFilterResearch_default = true;
 const storage_optionDetectPocMode = 'deboucled_optionDetectPocMode', storage_optionDetectPocMode_default = 0;
-const storage_optionPrevisualizeTopic = 'deboucled_optionPrevisualizeTopic', storage_optionPrevisualizeTopic_default = true;
+const storage_optionPrevisualizeTopic = 'deboucled_optionPrevisualizeTopic', storage_optionPrevisualizeTopic_default = false;
 const storage_optionDisplayBlackTopic = 'deboucled_optionDisplayBlackTopic', storage_optionDisplayBlackTopic_default = true;
 const storage_optionDisplayTopicCharts = 'deboucled_optionDisplayTopicCharts', storage_optionDisplayTopicCharts_default = true;
 const storage_optionDisplayTopicMatches = 'deboucled_optionDisplayTopicMatches', storage_optionDisplayTopicMatches_default = true;
