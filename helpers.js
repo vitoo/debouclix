@@ -116,26 +116,29 @@ function buildEntityRegex(array, withBoundaries) {
     if (!array?.length) return null;
 
     function transformGenericChars(str) {
-        const genCharsRegex = /^(?<leadingGeneric>\*?)(?<expression>.*?)(?<trailingGeneric>\*?)$/gi;
+        const genCharsRegex = /^(?<leadingGenericGrp>\*?)(?<expressionGrp>.*?)(?<trailingGenericGrp>\*?)$/gi;
         const matches = genCharsRegex.exec(str);
-        if (!matches?.groups?.expression) return null;
-        const leadingGeneric = matches.groups.leadingGeneric ? `(?:${matches.groups.leadingGeneric.handleGenericChar()})` : '';
-        const trailingGeneric = matches.groups.trailingGeneric ? `(?:${matches.groups.trailingGeneric.handleGenericChar()})` : '';
-        const expression = matches.groups.expression.handleGenericChar();
-        return `${leadingGeneric}(${expression})${trailingGeneric}`;
+        if (!matches?.groups?.expressionGrp) return null;
+
+        const leadingGeneric = matches.groups.leadingGenericGrp ? `(?:${matches.groups.leadingGenericGrp.handleGenericChar()})` : '';
+        const trailingGeneric = matches.groups.trailingGenericGrp ? `(?:${matches.groups.trailingGenericGrp.handleGenericChar()})` : '';
+
+        const expression = matches.groups.expressionGrp.handleGenericChar();
+        return `${leadingGeneric}${expression}${trailingGeneric}`;
     }
 
     // \b ne fonctionne pas avec les caractères spéciaux
-    let bStart = withBoundaries ? '(?<=\\W|^)' : '';
-    let bEnd = withBoundaries ? '(?=\\W|$)' : '';
+    const bStart = withBoundaries ? '(?<=\\W|^)' : '';
+    const bEnd = withBoundaries ? '(?=\\W|$)' : '';
 
-    let regexMap = array.filter(e => e?.length).map((e) => {
+    const regexMap = array.filter(e => e?.length).map((e) => {
         let word = e.escapeRegexPatterns().normalizeDiacritic();
         word = transformGenericChars(word);
         return `${bStart}${word}${bEnd}`;
     });
 
-    let regex = regexMap.join('|');
+    const regex = regexMap.join('|');
+
     return new RegExp(regex, 'gi');
 }
 
@@ -190,8 +193,8 @@ function addStyles(enableJvRespawnRefinedTheme, hideAvatarBorder) {
         GM_addStyle(avatarBorderHiddenCss);
     }
 
-    const ytCss = GM_getResourceText('yt');
-    GM_addStyle(ytCss);
+    const liteYoutubeCss = GM_getResourceText('LITEYOUTUBE_CSS');
+    GM_addStyle(liteYoutubeCss);
 }
 
 function addSvg(svgHtml) {
