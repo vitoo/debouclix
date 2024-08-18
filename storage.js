@@ -24,7 +24,7 @@ const storage_blacklistedShadows = 'deboucled_blacklistedShadows', storage_black
 const storage_whitelistedTopicIds = 'deboucled_whitelistedTopicIds', storage_whitelistedTopicIds_default = '[]';
 const storage_optionEnableJvRespawnRefinedTheme = 'deboucled_optionEnableJvRespawnRefinedTheme', storage_optionEnableJvRespawnRefinedTheme_default = false;
 const storage_optionEnableDeboucledDarkTheme = 'deboucled_optionEnableDeboucledDarkTheme', storage_optionEnableDeboucledDarkTheme_default = false;
-const storage_optionBoucledUseJvarchive = 'deboucled_optionBoucledUseJvarchive', storage_optionBoucledUseJvarchive_default = false;
+const storage_optionBoucledUseJvarchive = 'deboucled_optionBoucledUseJvarchive', storage_optionBoucledUseJvarchive_default = true;
 const storage_optionHideMessages = 'deboucled_optionHideMessages', storage_optionHideMessages_default = true;
 const storage_optionAllowDisplayThreshold = 'deboucled_optionAllowDisplayThreshold', storage_optionAllowDisplayThreshold_default = false;
 const storage_optionDisplayThreshold = 'deboucled_optionDisplayThreshold', storage_optionDisplayThreshold_default = 100;
