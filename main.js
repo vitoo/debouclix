@@ -704,6 +704,7 @@ async function handleTopicMessages() {
     prependEvent(postMessageElement, 'click', async () => await handlePostMessage());
 
     autoRefreshPagination();
+    setHdAvatar();
 }
 
 async function handleSearch() {
