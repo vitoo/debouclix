@@ -133,11 +133,8 @@ function buildSettingsPage() {
         const stylishLogo = '<span class="deboucled-stylish-logo"></span>';
         html += `<a class="deboucled-about-link-stylish" href="https://userstyles.world/style/3030/jv-respawn-refined" target="_blank" title="Thème JVC par Rand0max">${stylishLogo}</a>`;
 
-        const discordLogo = '<span class="deboucled-discord-logo"></span>';
-        html += `<a class="deboucled-about-link-discord" href="https://discord.com/users/781564172483166268" target="_blank" title="Me contacter sur Discord">${discordLogo}</a>`;
-
         const contactLogo = '<span class="deboucled-contact-logo"></span>';
-        html += `<a class="deboucled-about-link-contact" href="mailto:rand0max@protonmail.com" target="_blank" title="Me contacter par email">${contactLogo}</a>`;
+        html += `<a class="deboucled-about-link-contact" href="mailto:fb@vito.fr.nf" target="_blank" title="Me contacter par email">${contactLogo}</a>`;
 
         const supportLogo = '<span class="deboucled-support-logo"></span>';
         // html += `<a class="deboucled-about-link-support" href="https://commerce.coinbase.com/checkout/8ea5e4cc-cc0b-432f-852f-5cc4e30458b5" target="_blank" title="Faire un don">${supportLogo}</a>`;

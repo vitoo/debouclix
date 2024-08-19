@@ -1,5 +1,11 @@
 # Changelog Déboucled
 
+## [2.52.9] (19/08/2024)
+
+- Affichage des messages supprimé dans le profil (historique de vos messages perso)
+- Allow mobile zoom
+- On affiche les avatars en meilleur qualité dans les topics 
+
 ## [2.52.7] (05/08/2024)
 
 - Affichage du changelog dans les settings

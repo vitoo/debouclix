@@ -107,7 +107,7 @@ function displayAnnouncement() {
         showDenyButton: true,
         confirmButtonText: 'Je souhaite aider',
         denyButtonText: 'Non merci',
-        footer: '<a href="mailto:rand0max@protonmail.com">Nous contacter</a>',
+        footer: '<a href="mailto:fb@vito.fr.nf">Nous contacter</a>',
         customClass: {
             confirmButton: 'deboucled-bold'
         },
