@@ -40,21 +40,37 @@ async function queryHotTopics() {
 async function checkUpdate() {
     if (!mustRefresh(storage_lastUpdateCheck, checkUpdateExpire)) return;
 
-    const currentUserPseudo = userPseudo ?? store.get(storage_lastUsedPseudo, userId);
-    const bodyJson = `{"userid":"${userId}","username":"${currentUserPseudo?.toLowerCase() ?? 'anonymous'}","version":"${getCurrentScriptVersion()}"}`;
-    let checkRes;
-    await GM.xmlHttpRequest({
-        method: 'POST',
-        url: apiCheckUpdateUrl,
-        data: bodyJson,
-        headers: { 'Content-Type': 'application/json' },
-        onload: (response) => { checkRes = response.responseText; },
-        onerror: (response) => { console.error("error : %o", response); }
-    });
-
     store.set(storage_lastUpdateCheck, Date.now());
+    url = 'https://raw.githubusercontent.com/vitoo/deboucled/master/version';
+    try {
+        const response = await fetch(url);
+        const fetchedVersion = await response.text();
 
-    return checkRes;
+        if (fetchedVersion) {
+            if (compareVersions(fetchedVersion, getCurrentScriptVersion()) > 0) {
+                return true;
+            }
+        }
+        return false;
+    } catch (error) {
+        console.error('Error fetching the script:', error);
+        return false;
+    }
+}
+
+function compareVersions(v1, v2) {
+    const v1Parts = v1.split('.').map(Number);
+    const v2Parts = v2.split('.').map(Number);
+
+    for (let i = 0; i < Math.max(v1Parts.length, v2Parts.length); i++) {
+        const v1Part = v1Parts[i] || 0;
+        const v2Part = v2Parts[i] || 0;
+
+        if (v1Part > v2Part) return 1;
+        if (v1Part < v2Part) return -1;
+    }
+
+    return 0;  // Versions are equal
 }
 
 async function updateUser(forceUpdate = false) {

@@ -22,11 +22,10 @@ async function suggestUpdate() {
     }
 
     const updateRes = await checkUpdate();
-    if (updateRes?.length && mustRefresh(storage_lastUpdateDeferredCheck, checkUpdateDeferredExpire)) {
-        if (confirm('Nouvelle version de Déboucled disponible. Voulez-vous l\'installer ?')) {
+    if (updateRes && mustRefresh(storage_lastUpdateDeferredCheck, checkUpdateDeferredExpire)) {
+        if (confirm('Nouvelle version de Débouclix disponible. Voulez-vous l\'installer ?')) {
             toggleDeferUpdate(false);
-            document.location.href = updateRes;
-            //window.open(updateRes, '_blank').focus();
+            document.location.href = "https://github.com/vitoo/deboucled/raw/master/deboucled.user.js";
         }
         else {
             toggleDeferUpdate(true);
@@ -988,7 +987,7 @@ async function entryPoint() {
         updateUser();
 
         allowMobileZoom();
-        // suggestUpdate();
+        suggestUpdate();
 
         // displaySecret();
         // displayAnnouncement();
