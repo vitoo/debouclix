@@ -192,7 +192,8 @@ async function parsePreboucleData(forceUpdate) {
         storage_prebouclesLastUpdate,
         prebouclesRefreshExpire,
         storage_preBouclesData,
-        storage_preBouclesData_default
+        storage_preBouclesData_default,
+        (data) => data.map(pb => {  pb.enabled = false; return pb; })
     );
 
     if (preBoucleArray?.length) {
