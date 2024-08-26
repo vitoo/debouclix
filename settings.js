@@ -548,7 +548,7 @@ function addPrebouclesEvents() {
             togglePreBoucleStatus(b.id, checked);
             savePreBouclesStatuses();
         });
-        document.querySelector(`#deboucled-preboucle-${b.id}-title`).onclick = () => document.querySelector(`#${inputId}`)?.click();
+        // document.querySelector(`#deboucled-preboucle-${b.id}-title`).onclick = () => document.querySelector(`#${inputId}`)?.click();
     });
 }
 
