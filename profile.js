@@ -44,6 +44,8 @@ async function toggleFilteredTopicAuthor(author) {
     const currentFilteredAuthor = topicFilteredAuthorMap.get(currentTopicId);
     if (currentFilteredAuthor?.toLowerCase() !== author?.toLowerCase()) {
         topicFilteredAuthorMap.set(currentTopicId, author);
+        //activate infinite scroll
+        document.querySelector(".deboucled-smoothscroll-button")?.click()
     }
     else {
         topicFilteredAuthorMap.delete(currentTopicId);

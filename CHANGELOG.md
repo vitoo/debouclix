@@ -2,8 +2,8 @@
 
 ## [2.52.9] (19/08/2024)
 
-- Affichage des messages supprimé dans le profil (historique de vos messages perso)
-- Allow mobile zoom
+- Affichage des messages supprimé dans votre profil (historique de vos messages perso) grace à JvArchive
+- Autoriser le zoom sur mobile
 - On affiche les avatars en meilleur qualité dans les topics 
 
 ## [2.52.7] (05/08/2024)
