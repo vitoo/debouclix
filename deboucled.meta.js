@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Déboucled
 // @namespace   deboucledjvcom
-// @version     2.60.0
+// @version     2.60.1
 // @downloadURL https://github.com/vitoo/deboucled/raw/master/deboucled.user.js
 // @updateURL   https://github.com/vitoo/deboucled/raw/master/deboucled.meta.js
 // @author      Rand0max

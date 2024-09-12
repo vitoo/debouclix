@@ -1,4 +1,9 @@
-# Changelog Déboucled
+# Changelog Débouclix (le fork)
+
+## [2.60.1] (19/08/2024)
+
+- Autocomplétion des smileys
+- Quand on filtre un auteur, le topic passe en mode "FIC" grace au infinite scroll
 
 ## [2.52.9] (19/08/2024)
 
