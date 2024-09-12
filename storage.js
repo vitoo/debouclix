@@ -122,6 +122,7 @@ async function initStorage() {
     initVinzBoucles();
     //initShadowent();
     initSmileyGifMap();
+    initFullSmileyGifMap();
 
     firstLaunch = !store.get(storage_init, storage_init_default);
     if (firstLaunch) {
