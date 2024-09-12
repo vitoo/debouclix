@@ -115,6 +115,11 @@ function addSvgs() {
     addSvg(smoothScrollSvg);
 }
 
+function enableMobileZoom() {
+    const viewportMeta = document.querySelector('#meta-viewport');
+    if (viewportMeta) viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+}
+
 function getCurrentPageType(url) {
     if (document.querySelector('.img-erreur') !== null) return 'error';
 
@@ -492,7 +497,7 @@ function handleMessage(messageElement, messageOptions, isFirstMessage = false) {
     embedZupimages(messageContent);
     embedVocaroo(messageContent);
 
-    if(messageOptions.optionEmbedVideos) {
+    if (messageOptions.optionEmbedVideos) {
         embedStreamable(messageContent);
         embedYoutube(messageContent);
     }
@@ -651,7 +656,6 @@ function prepareMessageOptions(isWhitelistedTopic) {
         optionDisplayTitleSmileys: store.get(storage_optionDisplayTitleSmileys, storage_optionDisplayTitleSmileys_default),
         optionEmbedVideos: store.get(storage_optionEmbedVideos, storage_optionEmbedVideos_default),
         optionEmbedTwitter: store.get(storage_optionEmbedTwitter, storage_optionEmbedTwitter_default),
-        optionEmbedStreamable: store.get(storage_optionEmbedStreamable, storage_optionEmbedStreamable_default),
         optionAntiLoopAiMode: store.get(storage_optionAntiLoopAiMode, storage_optionAntiLoopAiMode_default),
         optionDisplayBadges: store.get(storage_optionDisplayBadges, storage_optionDisplayBadges_default),
         isWhitelistedTopic: isWhitelistedTopic
@@ -986,9 +990,8 @@ async function entryPoint() {
         }
 
         updateUser();
-
-        allowMobileZoom();
         suggestUpdate();
+        enableMobileZoom();
 
         // displaySecret();
         // displayAnnouncement();
