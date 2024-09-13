@@ -469,7 +469,7 @@ function embedYoutube(messageContent) {
 
     messageContent.querySelectorAll('a').forEach(a => {
         const url = a.href;
-        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([\w-]{11})(?:\S*?t=(\d+))?/i;
+        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/|live\/)|youtu\.be\/)([\w-]{11})(?:\S*?t=(\d+))?/i;
         const match = url.match(regex);
         if (!match) return;
 
