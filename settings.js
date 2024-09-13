@@ -533,7 +533,6 @@ function addSettingEvents() {
     addToggleEvent(storage_optionHideAvatarBorder);
     addToggleEvent(storage_optionEmbedVideos);
     addToggleEvent(storage_optionEmbedTwitter);
-    addToggleEvent(storage_optionEmbedStreamable);
     addToggleEvent(storage_optionDisplayBadges);
     addToggleEvent(storage_optionGetMessageQuotes);
     addToggleEvent(storage_optionFilterHotTopics);
