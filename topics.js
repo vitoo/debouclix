@@ -1164,7 +1164,6 @@ function initFullSmileyGifMap() {
         [":objection:", "objection"],
         [":siffle:", "siffle"],
         [":mac:", "16"],
-        [":fish:", "fish"],
         [":globe:", "6"],
         [":globe:", "6"],
         [":hapoelparty:", "hapoelparty"],
