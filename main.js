@@ -120,6 +120,13 @@ function enableMobileZoom() {
     if (viewportMeta) viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
 }
 
+function fixGif() {
+    const imgElements = document.querySelectorAll('img[src="https://image.jeuxvideo.com/smileys_img/39.gif"]');
+    imgElements.forEach(imgElement => {
+        imgElement.src = `https://jvarchive.com/static/smileys/:rire:.gif`;
+    });
+}
+
 function getCurrentPageType(url) {
     if (document.querySelector('.img-erreur') !== null) return 'error';
 
@@ -995,6 +1002,7 @@ async function entryPoint() {
         updateUser();
         suggestUpdate();
         enableMobileZoom();
+        fixGif();
 
         // displaySecret();
         // displayAnnouncement();
