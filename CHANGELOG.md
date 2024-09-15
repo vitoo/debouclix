@@ -1,5 +1,10 @@
 # Changelog Débouclix (le fork)
 
+## [2.60.1] (15/09/2024)
+
+- Fix preview topic loupe sur mobile
+- Fix gif :rire:
+
 ## [2.60.1] (19/08/2024)
 
 - Autocomplétion des smileys
