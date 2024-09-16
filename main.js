@@ -370,27 +370,34 @@ function blacklistsIncludingEntity(entity, entityType, mustBeEnabled = true) {
     let normEntity = entity.normalizeDiacritic();
     if (entityType == entityAuthor) normEntity = normEntity.toLowerCase();
 
+    const cacheKey = `${normEntity}|${entityType}|${mustBeEnabled}`;
+    if (entityBlacklistMatches.has(cacheKey)) return entityBlacklistMatches.get(cacheKey);
+
     const userBlacklistRegex = getEntityRegex(entityType, false);
-    if (userBlacklistRegex && normEntity.match(userBlacklistRegex))
+    if (userBlacklistRegex && normEntity.match(userBlacklistRegex)) {
         blacklists.push({
             id: `custom_${entityType}`,
             description: `Liste noire ${getEntityTitle(entityType)}`,
             shortDescription: `Liste noire ${getEntityTitle(entityType)}`,
             enabled: true
         });
+    }
 
     preBoucleArray
         .filter(pb => pb.type === entityType)
         .filter(pb => !mustBeEnabled || pb.enabled)
         .forEach(pb => {
-            if (normEntity.match(pb.regex))
+            if (normEntity.match(pb.regex)) {
                 blacklists.push({
                     id: pb.id,
                     description: pb.title,
                     shortDescription: pb.shortTitle,
                     enabled: pb.enabled
                 });
+            }
         });
+
+    entityBlacklistMatches.set(cacheKey, blacklists);
 
     return blacklists;
 }
@@ -714,8 +721,8 @@ async function handleTopicMessages() {
     const postMessageElement = document.querySelector('.btn-poster-msg');
     prependEvent(postMessageElement, 'click', async () => await handlePostMessage());
 
+    setHdAvatars();
     autoRefreshPagination();
-    setHdAvatar();
 }
 
 async function handleSearch() {
@@ -926,8 +933,8 @@ async function init(currentPageType) {
     const optionGetMessageQuotes = store.get(storage_optionGetMessageQuotes, storage_optionGetMessageQuotes_default);
     if (optionGetMessageQuotes) buildQuoteNotifications();
 
-    buildSettingsPage();
     addSettingButton();
+
     addDisableFilteringButton();
 
     handlePendingMessageQuotes();
@@ -936,7 +943,7 @@ async function init(currentPageType) {
 }
 
 async function entryPoint() {
-    while (!document.body) await sleep(100);
+    while (!document.body) await sleep(50);
 
     let start = performance.now();
     try {
@@ -996,7 +1003,7 @@ async function entryPoint() {
 
         if (elapsed >= 3000) {
             console.warn(`Déboucled slow loading : totaltime = ${elapsed}ms`);
-            await sendDiagnostic(elapsed);
+            sendDiagnostic(elapsed);
         }
 
         updateUser();
@@ -1009,7 +1016,7 @@ async function entryPoint() {
     } catch (error) {
         const elapsed = performance.now() - start;
         console.error(error);
-        await sendDiagnostic(elapsed, error);
+        sendDiagnostic(elapsed, error);
     }
     finally {
         sendFinalEvent();
