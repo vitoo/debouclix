@@ -667,8 +667,8 @@ function addPrevisualizeTopicEvent(topics) {
         const onPreviewEnd = () => anchor.classList.toggle('active', false);
 
         // For mobile
-        topicImg.ontouchstart = onPreviewStart;
-        topicImg.ontouchend = onPreviewEnd;
+        anchor.ontouchstart = onPreviewStart;
+        anchor.ontouchend = onPreviewEnd;
         // For everything else
         anchor.onpointerenter = onPreviewStart;
         anchor.onpointerleave = onPreviewEnd;
