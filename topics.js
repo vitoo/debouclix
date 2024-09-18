@@ -676,7 +676,7 @@ function addPrevisualizeTopicEvent(topics) {
 }
 
 function handleTopicPictos(topics, optionDisplayBlackTopic, optionReplaceResolvedPicto) {
-    const ignoredTopics = ['topic-lock', 'topic-pin-off', 'topic-pin-on', 'topic-removed'];
+    const ignoredTopics = ['topic-lock', 'topic-pin-off', 'topic-removed'];
 
     function buildBlackPicto(topicImg) {
         topicImg.classList.toggle('topic-folder1', false);
