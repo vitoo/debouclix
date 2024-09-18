@@ -352,16 +352,22 @@ function embedTwitterLinks(messageContent) {
 
     const twitterDns = 'twitter.com';
     const newTwitterDns = 'x.com';
-
-    const newTwitterLinks = messageContent.querySelectorAll(`a[href*="${newTwitterDns}/"][href*="/status/"]`);
-    if (newTwitterLinks?.length) {
-        newTwitterLinks.forEach(link => {
-            link.href = link.href.replace(newTwitterDns, twitterDns);
-            link.title = link.title.replace(newTwitterDns, twitterDns);
-            link.textContent = link.textContent.replace(newTwitterDns, twitterDns);
-        });
+    
+    function replaceLinks(selector, oldDomain, newDomain) {
+        const links = messageContent.querySelectorAll(selector);
+        if (links?.length) {
+            links.forEach(link => {
+                link.href = link.href.replace(oldDomain, newDomain);
+                link.title = link.title.replace(oldDomain, newDomain);
+                link.textContent = link.textContent.replace(oldDomain, newDomain);
+            });
+        }
     }
-
+    
+    // Replace x.com with twitter.com
+    replaceLinks(`a[href*="${newTwitterDns}/"][href*="/status/"]`, newTwitterDns, twitterDns);
+    // Replace mobile.twitter.com with twitter.com
+    replaceLinks(`a[href*="mobile.${twitterDns}/"][href*="/status/"]`, 'mobile.twitter.com', twitterDns);
     const twitterLinks = messageContent.querySelectorAll(`a[href*="${twitterDns}/"][href*="/status/"]`);
     if (!twitterLinks?.length) return;
 
