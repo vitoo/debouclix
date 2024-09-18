@@ -1082,8 +1082,7 @@ function initSmileyGifMap() {
     smileyGifRegex = new RegExp(`(${regexMap.join('|')})`, 'g');
 }
 
-function initFullSmileyGifMap() {
-     
+function initFullSmileyGifMap() {     
     fullSmileyGifMap = new Map([
         [":)", "1"],
         [":snif:", "20"],
