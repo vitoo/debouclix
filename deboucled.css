@@ -242,6 +242,11 @@ blockquote .deboucled-highlighted {
   display: block;
   cursor: pointer;
 }
+@media (max-width: 807.98px) {
+  .deboucled-topic-preview-col {
+    margin-right: -8px;
+  }  
+}
 .deboucled-preview-content {
   position: absolute !important;
   opacity: 0.98;
