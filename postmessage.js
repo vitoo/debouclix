@@ -456,8 +456,8 @@ async function uploadFiles(files, element) {
     for (let i = 0; i < files.length; i++) {
         let file = files[i];
         if (file.type.includes("image")) {
-            if (file.type === "image/webp") {
-                file = await convertWebPToJPEG(file);
+            if (file.type === "image/webp" || file.type == "image/avif" ) {
+                file = await convertToJPEG(file);
             }
             const imageUrl = await uploadFile(file);
             if (imageUrl) {
@@ -492,7 +492,6 @@ function updateTextArea(imageUrl, element) {
     imageUrl = " " + imageUrl + " ";
     const position = element.selectionStart;
     const before = element.value.substring(0, position);
-    console.log(before)
     const after = element.value.substring(position, element.value.length);
     element.value = before + imageUrl + after;
     element.selectionStart = element.selectionEnd = position + imageUrl.length;
@@ -500,7 +499,7 @@ function updateTextArea(imageUrl, element) {
     element.dispatchEvent(changeEvent);
 }
 
-async function convertWebPToJPEG(webpBlob) {
+async function convertToJPEG(webpBlob) {
     const img = document.createElement('img');
     img.src = URL.createObjectURL(webpBlob);
 
