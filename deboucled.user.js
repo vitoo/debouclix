@@ -17,6 +17,7 @@
 // @match       https://www.jeuxvideo.com/profil/*
 // @match       http://www.jeuxvideo.com/sso/*
 // @match       https://www.jeuxvideo.com/sso/*
+// @match       https://risibank.fr/embed*
 // @connect     randomax.com
 // @connect     www.noelshack.com
 // @connect     jvarchive.com

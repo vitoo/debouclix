@@ -127,8 +127,11 @@ function fixGif() {
     });
 }
 
-function getCurrentPageType(url) {
+function getCurrentPageType(url, hostname) {
     if (document.querySelector('.img-erreur') !== null) return 'error';
+
+    let risibankRegex = /risibank\.fr/i;
+    if (hostname.match(risibankRegex))  return 'risibank';
 
     let topicListRegex = /^\/forums\/0-[0-9]+-0-1-0-[0-9]+-0-.*\.htm$/i;
     if (url.match(topicListRegex)) return 'topiclist';
@@ -887,6 +890,14 @@ function handleError() {
     }
 }
 
+function handleRisibank() {
+    GM_addStyle(`
+        .actions-right{ display: none }
+        a[title="SkyCh.at"] { display: none }
+        .mt-4, .mt-2 {margin: 0 !important }
+    `);
+}
+
 function loadStyles() {
     const enableJvRespawnRefinedTheme = store.get(storage_optionEnableJvRespawnRefinedTheme, storage_optionEnableJvRespawnRefinedTheme_default);
     const hideAvatarBorder = store.get(storage_optionHideAvatarBorder, storage_optionHideAvatarBorder_default);
@@ -937,7 +948,8 @@ async function entryPoint() {
 
     let start = performance.now();
     try {
-        const currentPageType = getCurrentPageType(`${window.location.pathname}${window.location.search}`);
+        const currentPageType = getCurrentPageType(`${window.location.pathname}${window.location.search}`, window.location.hostname);
+        console.log(`Déboucled loaded on ${currentPageType}`);
         if (currentPageType === 'unknown') return;
 
         await init(currentPageType);
@@ -980,6 +992,10 @@ async function entryPoint() {
             }
             case 'error': {
                 handleError();
+                break;
+            }
+            case 'risibank': {
+                handleRisibank();
                 break;
             }
             default:
