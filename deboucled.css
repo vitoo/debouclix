@@ -2469,6 +2469,10 @@ select.deboucled-dropdown::-ms-expand {
   margin-bottom: -7px;
 }
 
+.text-enrichi-forum img[src^="https://image.jeuxvideo.com/smileys_img/"] {
+  image-rendering: pixelated;
+}
+
 .bloc-rech-forum .form-rech-forum {  
   width: auto !important;
 } 

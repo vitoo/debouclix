@@ -1,11 +1,16 @@
 # Changelog Débouclix (le fork)
 
+## [2.60.2] (23/09/2024)
+
+- Fix Risibank décallage
+- Sharp smiley
+
 ## [2.60.1] (15/09/2024)
 
 - Fix preview topic loupe sur mobile
 - Fix gif :rire:
 
-## [2.60.1] (19/08/2024)
+## [2.60.1] (12/09/2024)
 
 - Autocomplétion des smileys
 - Quand on filtre un auteur, le topic passe en mode "FIC" grace au infinite scroll

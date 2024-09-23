@@ -122,8 +122,8 @@ function displayAnnouncement() {
 }
 
 function buildExtras() {
-    buildSupport();
-    buildSponsor();
+    // buildSupport();
+    // buildSponsor();
 }
 
 function allowMobileZoom() {
