@@ -949,7 +949,6 @@ async function entryPoint() {
     let start = performance.now();
     try {
         const currentPageType = getCurrentPageType(`${window.location.pathname}${window.location.search}`, window.location.hostname);
-        console.log(`Déboucled loaded on ${currentPageType}`);
         if (currentPageType === 'unknown') return;
 
         await init(currentPageType);
