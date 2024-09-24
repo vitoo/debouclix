@@ -325,6 +325,10 @@ function addSuggestionEvent(type, element) {
             suggestions = await suggestAuthors(wordAtCaret);
         } else if (type === 'smiley') {
             suggestions = await suggestSmiley(wordAtCaret);
+            if (suggestions?.length && suggestions.some(s => wordAtCaret === s[0])) {
+                clearCallback(); // Close the suggestion box if an exact match is found
+                return;
+            }
         }
 
         if (!suggestions?.length) { clearCallback(); return; }
@@ -477,7 +481,7 @@ async function uploadFile(file) {
     formData.append('domain', 'https://www.jeuxvideo.com');
     formData.append('fichier', file);
 
-    const response = await sendRequest(formData);
+    const response = await sendImageToNoelshack(formData);
 
     try {
         const data = JSON.parse(response.responseText);
@@ -518,7 +522,7 @@ async function convertToJPEG(webpBlob) {
     });
 }
 
-function sendRequest(formData) {
+function sendImageToNoelshack(formData) {
     return new Promise((resolve, reject) => {
         GM_xmlhttpRequest({
             method: 'POST',
