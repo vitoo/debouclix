@@ -121,9 +121,13 @@ function enableMobileZoom() {
 }
 
 function fixGif() {
-    const imgElements = document.querySelectorAll('img[src="https://image.jeuxvideo.com/smileys_img/39.gif"]');
-    imgElements.forEach(imgElement => {
-        imgElement.src = `https://jvarchive.com/static/smileys/:rire:.gif`;
+    const smileyCodes = [':rire:', ':fete:'];
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        const dataCode = img.getAttribute('data-code');
+        if (smileyCodes.includes(dataCode)) {
+            img.setAttribute('src', `https://jvarchive.com/static/smileys/${dataCode}.gif`);
+        }
     });
 }
 
@@ -131,7 +135,7 @@ function getCurrentPageType(url, hostname) {
     if (document.querySelector('.img-erreur') !== null) return 'error';
 
     let risibankRegex = /risibank\.fr/i;
-    if (hostname.match(risibankRegex))  return 'risibank';
+    if (hostname.match(risibankRegex)) return 'risibank';
 
     let topicListRegex = /^\/forums\/0-[0-9]+-0-1-0-[0-9]+-0-.*\.htm$/i;
     if (url.match(topicListRegex)) return 'topiclist';
