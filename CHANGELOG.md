@@ -1,9 +1,13 @@
 # Changelog Débouclix (le fork)
 
+## [2.60.4] (13/10/2024)
+
+- Fix bouton débouclix sur mobile 
+- Disable sharp smiley 
+
 ## [2.60.2] (23/09/2024)
 
 - Fix Risibank décallage
-- Sharp smiley
 
 ## [2.60.1] (15/09/2024)
 
