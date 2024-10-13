@@ -2465,6 +2465,9 @@ select.deboucled-dropdown::-ms-expand {
   .deboucled-option-table-subcell {
     font: 11px/14px sans-serif;
   }
+  #forum-main-col .bloc-pre-pagi-forum .bloc-pre-right {
+    flex: 2;
+  }
 }
 
 .text-enrichi-forum .img-shack {

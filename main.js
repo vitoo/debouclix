@@ -867,11 +867,11 @@ async function handlePrivateMessageNotifs() {
     }
 }
 
-function handleError() {
+async function handleError() {
     let homepageButton = document.querySelector('.btn-secondary');
     if (!homepageButton) return;
 
-    function goToJvArchiveButton(pathUrl) {
+    function buildGoToJvArchiveButton(pathUrl) {
         let jvArchiveButton = document.createElement('a');
         jvArchiveButton.className = 'btn deboucled-goto-jvarchive btn-primary mb-5';
         jvArchiveButton.href = `${jvarchiveUrl}${pathUrl}`;
@@ -887,10 +887,10 @@ function handleError() {
         homepageButton.textContent = 'Retour au forum';
         homepageButton.href = forumUrl;
 
-        goToJvArchiveButton(window.location.pathname.slice(0, -4));
+      buildGoToJvArchiveButton(window.location.pathname.slice(0, -4));
     }
     else { // 410 d'un message
-        goToJvArchiveButton(window.location.pathname);
+        buildGoToJvArchiveButton(window.location.pathname);
     }
 }
 
