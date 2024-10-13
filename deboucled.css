@@ -1896,6 +1896,9 @@ input[type="search"] {
 .deboucled-svg-spiral-black #deboucled-spiral-logo {
   fill: black;
 }
+.deboucled-spiral-logo-white {
+  fill: #eee ;
+}
 .deboucled-svg-github #deboucled-github-logo {
   fill: var(--deboucled-text-color);
   color: var(--deboucled-text-color);

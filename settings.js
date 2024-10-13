@@ -860,8 +860,9 @@ function addSettingButton() {
         let button = document.createElement('button');
         button.setAttribute('id', 'deboucled-option-button');
         button.setAttribute('class', `btn deboucled-button deboucled-option-button${firstLaunch ? ' blinking' : ''}  d-inline-block d-sm-none   `);
-        button.innerHTML = 'Déb';
-        button.style = "width: 33px; min-width: inherit;"
+        button.innerHTML = '<svg viewBox="0 0 25 25" class="deboucled-spiral-logo-white"><use href="#spirallogo"/></svg>';
+        button.style = "width: 33px; padding-right:5px; padding-left:5px;  min-width: inherit; color:white;"
+        button.title ="Débouclix";
         return button;
     }
     function createDeboucledButton(hide = false) {

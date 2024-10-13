@@ -352,7 +352,7 @@ function embedTwitterLinks(messageContent) {
 
     const twitterDns = 'twitter.com';
     const newTwitterDns = 'x.com';
-    
+
     function replaceLinks(selector, oldDomain, newDomain) {
         const links = messageContent.querySelectorAll(selector);
         if (links?.length) {
@@ -363,7 +363,7 @@ function embedTwitterLinks(messageContent) {
             });
         }
     }
-    
+
     // Replace x.com with twitter.com
     replaceLinks(`a[href*="${newTwitterDns}/"][href*="/status/"]`, newTwitterDns, twitterDns);
     // Replace mobile.twitter.com with twitter.com
@@ -429,7 +429,7 @@ function embedZupimages(messageContent) {
     });
 }
 
-function embedStreamable(messageContent) {
+function embedVideos(messageContent) {
     if (!messageContent) return;
 
     function createAndInsertVideo(a, videoUrl, type) {
