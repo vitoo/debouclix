@@ -17,9 +17,6 @@
 
 - Fix preview topic loupe sur mobile
 - Fix gif :rire:
-
-## [2.60.1] (12/09/2024)
-
 - Autocomplétion des smileys
 - Quand on filtre un auteur, le topic passe en mode "FIC" grace au infinite scroll
 
