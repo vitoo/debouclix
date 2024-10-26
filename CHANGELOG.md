@@ -1,5 +1,9 @@
 # Changelog Débouclix (le fork)
 
+## [2.60.5] (26/10/2024)
+
+- Fix bug URL for tampermonkey version 5.3.1
+
 ## [2.60.4] (13/10/2024)
 
 - Fix bouton débouclix sur mobile 

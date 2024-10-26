@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Déboucled
 // @namespace   deboucledjvcom
-// @version     2.60.4
+// @version     2.60.5
 // @downloadURL https://github.com/vitoo/deboucled/raw/master/deboucled.user.js
 // @updateURL   https://github.com/vitoo/deboucled/raw/master/deboucled.meta.js
 // @author      Rand0max
@@ -34,8 +34,8 @@
 // @grant       GM.listValues
 // @grant       GM.getResourceText
 // @grant       GM.xmlHttpRequest
-// @resource    DEBOUCLED_CSS deboucled.css
-// @resource    JVRESPAWNREFINED_CSS jv-respawn-refined.css
+// @resource    DEBOUCLED_CSS https://github.com/vitoo/deboucled/raw/master/deboucled.css
+// @resource    JVRESPAWNREFINED_CSS https://github.com/vitoo/deboucled/raw/master/jv-respawn-refined.css
 // @resource    CHARTS_CSS https://unpkg.com/charts.css@1.1.0/dist/charts.min.css
 // @resource    SWEETALERTDARK_CSS https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css
 // @resource    LITEYOUTUBE_CSS https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.2/src/lite-yt-embed.min.css
@@ -48,21 +48,21 @@
 // @require     https://unpkg.com/@chocolateboy/uncommonjs@3.2.1/dist/polyfill.iife.min.js
 // @require     https://unpkg.com/fastest-levenshtein@1.0.16/mod.js
 // @require     https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.2/src/lite-yt-embed.min.js
-// @require     variables.js
-// @require     helpers.js
-// @require     storage.js
-// @require     header.js
-// @require     preboucles.js
-// @require     apidata.js
-// @require     jvarchiveapi.js
-// @require     stats.js
-// @require     topics.js
-// @require     messages.js
-// @require     postmessage.js
-// @require     settings.js
-// @require     privatemessages.js
-// @require     profile.js
-// @require     extras.js
-// @require     main.js
+// @require     https://github.com/vitoo/deboucled/raw/master/variables.js
+// @require     https://github.com/vitoo/deboucled/raw/master/helpers.js
+// @require     https://github.com/vitoo/deboucled/raw/master/storage.js
+// @require     https://github.com/vitoo/deboucled/raw/master/header.js
+// @require     https://github.com/vitoo/deboucled/raw/master/preboucles.js
+// @require     https://github.com/vitoo/deboucled/raw/master/apidata.js
+// @require     https://github.com/vitoo/deboucled/raw/master/jvarchiveapi.js
+// @require     https://github.com/vitoo/deboucled/raw/master/stats.js
+// @require     https://github.com/vitoo/deboucled/raw/master/topics.js
+// @require     https://github.com/vitoo/deboucled/raw/master/messages.js
+// @require     https://github.com/vitoo/deboucled/raw/master/postmessage.js
+// @require     https://github.com/vitoo/deboucled/raw/master/settings.js
+// @require     https://github.com/vitoo/deboucled/raw/master/privatemessages.js
+// @require     https://github.com/vitoo/deboucled/raw/master/profile.js
+// @require     https://github.com/vitoo/deboucled/raw/master/extras.js
+// @require     https://github.com/vitoo/deboucled/raw/master/main.js
 // @run-at      document-body
 // ==/UserScript==
