@@ -368,7 +368,7 @@ function embedTwitterLinks(messageContent) {
     replaceLinks(`a[href*="${newTwitterDns}/"][href*="/status/"]`, newTwitterDns, twitterDns);
     // Replace mobile.twitter.com with twitter.com
     replaceLinks(`a[href*="mobile.${twitterDns}/"][href*="/status/"]`, 'mobile.twitter.com', twitterDns);
-    const twitterLinks = messageContent.querySelectorAll(`a[href*="${twitterDns}/"][href*="/status/"]`);
+    const twitterLinks = messageContent.querySelectorAll(`div > p a[href*="${twitterDns}/"][href*="/status/"]`);
     if (!twitterLinks?.length) return;
 
     const widjetUrl = `https://platform.${twitterDns}/widgets.js`;
@@ -445,7 +445,7 @@ function embedVideos(messageContent) {
         a.insertAdjacentElement('afterend', video);
     }
 
-    messageContent.querySelectorAll('a[href*="streamable.com"]').forEach(a => {
+    messageContent.querySelectorAll('div > p > a[href*="streamable.com"]').forEach(a => {
         const url = a.href;
         const match = url.match(/^https:\/\/streamable\.com\/(?<id>.*)$/, 'i');
         if (!match) return;
@@ -453,7 +453,7 @@ function embedVideos(messageContent) {
         createAndInsertVideo(a, videoUrl, 'video/mp4');
     });
 
-    messageContent.querySelectorAll('a[href*="webmshare.com"]').forEach(a => {
+    messageContent.querySelectorAll('div > p > a[href*="webmshare.com"]').forEach(a => {
         const url = a.href;
         const match = url.match(/https:\/\/webmshare\.com\/(?:play\/)?(?<id>[\w]+)/i);
         if (!match) return;
@@ -461,11 +461,11 @@ function embedVideos(messageContent) {
         createAndInsertVideo(a, videoUrl, 'video/webm');
     });
 
-    messageContent.querySelectorAll('a[href*=".mp4"]').forEach(a => {
+    messageContent.querySelectorAll('div > p > a[href*=".mp4"]').forEach(a => {
         createAndInsertVideo(a, a.href, 'video/mp4');
     });
 
-    messageContent.querySelectorAll('a[href*=".webm"]').forEach(a => {
+    messageContent.querySelectorAll('div > p > a[href*=".webm"]').forEach(a => {
         createAndInsertVideo(a, a.href, 'video/webm');
     });
 }
@@ -473,7 +473,7 @@ function embedVideos(messageContent) {
 function embedYoutube(messageContent) {
     if (!messageContent) return;
 
-    messageContent.querySelectorAll('a').forEach(a => {
+    messageContent.querySelectorAll('div > p > a').forEach(a => {
         const url = a.href;
         const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/|live\/)|youtu\.be\/)([\w-]{11})(?:\S*?t=(\d+))?/i;
         const match = url.match(regex);

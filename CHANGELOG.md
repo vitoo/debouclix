@@ -1,5 +1,10 @@
 # Changelog Débouclix (le fork)
 
+## [2.60.5] (27/10/2024)
+
+- Intégration des vidéos et twitter uniquement sur les messages et pas la citations (Rand0max)
+
+
 ## [2.60.5] (26/10/2024)
 
 - Fix bug URL for tampermonkey version 5.3.1
