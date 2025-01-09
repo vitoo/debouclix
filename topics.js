@@ -1079,7 +1079,7 @@ function initSmileyGifMap() {
         [':mac:', '16'],
         [':fete:', '66']
     ]);
-    brokenSmileyGifArray = [':fete:', ':rire:',':ouch:'];
+    brokenSmileyGifArray = [':fete:', ':rire:', ':rire2:' ,':ouch:', ':oui:', ':play:' ];
 
     let regexMap = [...smileyGifMap.keys()].map((e) => e.escapeRegexPatterns());
     smileyGifRegex = new RegExp(`(${regexMap.join('|')})`, 'gi');
