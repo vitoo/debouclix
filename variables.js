@@ -115,6 +115,7 @@ const domParser = new DOMParser();
 
 let smileyGifMap = new Map();
 let fullSmileyGifMap = new Map();
+let brokenSmileyGifArray = [];
 let smileyGifRegex = new RegExp();
 
 //const decensuredUrl = 'https://github.com/Rand0max/decensured#readme';

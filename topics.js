@@ -852,7 +852,7 @@ function createTopicTitleSmileys(topics) {
     topics.slice(1).forEach(function (topic) {
         const titleElem = topic.querySelector('.lien-jv.topic-title');
         if (!titleElem) return;
-        titleElem.innerHTML = titleElem.innerHTML.replace(smileyGifRegex, (e) => getSmileyImgHtml(e, false));
+        titleElem.innerHTML = titleElem.innerHTML.replaceAll(smileyGifRegex, (e) => getSmileyImgHtml(e, false));
     });
 }
 
@@ -1076,13 +1076,23 @@ function initSmileyGifMap() {
         [':pf:', 'pf'],
         [':siffle:', 'siffle'],
         [':globe:', '6'],
-        [':mac:', '16']
+        [':mac:', '16'],
+        [':fete:', '66']
     ]);
+    brokenSmileyGifArray = [':fete:', ':rire:',':ouch:'];
+
     let regexMap = [...smileyGifMap.keys()].map((e) => e.escapeRegexPatterns());
-    smileyGifRegex = new RegExp(`(${regexMap.join('|')})`, 'g');
+    smileyGifRegex = new RegExp(`(${regexMap.join('|')})`, 'gi');
 }
 
-function initFullSmileyGifMap() {     
+function buildSmileyUrl(smileyCode) {
+    if (brokenSmileyGifArray.includes(smileyCode)) return `${jvarchiveUrl}/static/smileys/${smileyCode}.gif`;
+    const gifCode = smileyGifMap.get(smileyCode);
+    if (!gifCode?.length) return smileyCode;
+    return `https://image.jeuxvideo.com/smileys_img/${gifCode}.gif`;
+}
+
+function initFullSmileyGifMap() {
     fullSmileyGifMap = new Map([
         [":)", "1"],
         [":snif:", "20"],
@@ -1167,15 +1177,14 @@ function initFullSmileyGifMap() {
         [":hapoelparty:", "hapoelparty"],
         [":loveyou:", "loveyou"],
       ]);
- 
+
 }
 
-function getSmileyImgHtml(smiley, big = false) {
-    if (!smiley?.length) return smiley;
-    const smileyLower = smiley.toLowerCase();
-    const gifCode = smileyGifMap.get(smileyLower);
-    if (!gifCode?.length) return smiley;
-    return `<img data-code="${smileyLower}" title="${smileyLower}" src="https://image.jeuxvideo.com/smileys_img/${gifCode}.gif" class="deboucled-smiley${big ? ' big' : ''}">`;
+function getSmileyImgHtml(smileyCode, big = false) {
+    if (!smileyCode?.length) return smileyCode;
+    const smileyLower = smileyCode.toLowerCase();
+    const smileyUrl = buildSmileyUrl(smileyLower);
+    return `<img data-code="${smileyLower}" title="${smileyLower}" src="${smileyUrl}" class="deboucled-smiley${big ? ' big' : ''}">`;
 }
 
 function getFullSmileyImgHtml(smiley) {
