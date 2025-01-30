@@ -126,7 +126,7 @@ function fixGif() {
     images.forEach(img => {
         const dataCode = img.getAttribute('data-code');
         if (smileyCodes.includes(dataCode)) {
-            img.setAttribute('src', `https://jvarchive.com/static/smileys/${dataCode}.gif`);
+            img.setAttribute('src', `${jvarchiveUrl}/static/smileys/${dataCode}.gif`);
         }
     });
 }
