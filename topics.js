@@ -1086,7 +1086,7 @@ function initSmileyGifMap() {
 }
 
 function buildSmileyUrl(smileyCode) {
-    if (brokenSmileyGifArray.includes(smileyCode)) return `${jvarchiveUrl}/static/smileys/${smileyCode}.gif`;
+    // if (brokenSmileyGifArray.includes(smileyCode)) return `${jvarchiveUrl}/static/smileys/${smileyCode}.gif`;
     const gifCode = smileyGifMap.get(smileyCode);
     if (!gifCode?.length) return smileyCode;
     return `https://image.jeuxvideo.com/smileys_img/${gifCode}.gif`;
