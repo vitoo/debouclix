@@ -120,17 +120,6 @@ function enableMobileZoom() {
     if (viewportMeta) viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
 }
 
-function fixGif() {
-    const smileyCodes = [':rire:', ':fete:'];
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        const dataCode = img.getAttribute('data-code');
-        if (smileyCodes.includes(dataCode)) {
-            img.setAttribute('src', `${jvarchiveUrl}/static/smileys/${dataCode}.gif`);
-        }
-    });
-}
-
 function getCurrentPageType(url, hostname) {
     if (document.querySelector('.img-erreur') !== null) return 'error';
 
@@ -1019,7 +1008,6 @@ async function entryPoint() {
         updateUser();
         suggestUpdate();
         enableMobileZoom();
-        fixGif();
 
         // displaySecret();
         // displayAnnouncement();
