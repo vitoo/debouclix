@@ -56,11 +56,11 @@ async function handlePostMessage() {
 function bypassTextCensorship() {
     const textArea = document.querySelector('#message_topic');
     if (textArea?.value?.length) {
-        textArea.value = textArea.value.replaceAll(/d[e|é]boucled/gi, 'Déb0ucled');
-        textArea.value = textArea.value.replaceAll(/d[e|é]censured/gi, 'Déc3nsured');
+        setTextAreaValue(textArea, textArea.value.replaceAll(/d[e|é]boucled/gi, 'Déb0ucled'));
+        setTextAreaValue(textArea, textArea.value.replaceAll(/d[e|é]censured/gi, 'Déc3nsured'));
     }
 
-    const titleArea = document.querySelector('#titre_topic');
+    const titleArea = document.querySelector('#input-topic-title');
     if (titleArea?.value?.length) {
         titleArea.value = titleArea.value.replaceAll(/d[e|é]boucled/gi, 'Déb0ucled');
         titleArea.value = titleArea.value.replaceAll(/d[e|é]censured/gi, 'Déc3nsured');
@@ -127,8 +127,7 @@ async function buildQuoteMessage(messageElement, selection) {
     if (selection?.length) {
         const currentContent = textArea.value.length === 0 ? '' : `${textArea.value.trim()}\n\n`;
         const quotedText = selection.replaceAll('\n', '\n> ');
-        textArea.value = `${currentContent}${newQuoteHeader}\n> ${quotedText}\n\n`;
-        textArea.dispatchEvent(new Event('change'));
+        setTextAreaValue(textArea, `${currentContent}${newQuoteHeader}\n> ${quotedText}\n\n`);
         textArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
         textArea.focus({ preventScroll: true });
         textArea.setSelectionRange(textArea.value.length, textArea.value.length);
@@ -137,7 +136,7 @@ async function buildQuoteMessage(messageElement, selection) {
         setTimeout(() => {
             const date = getDateFromMessageElem(messageElement);
             const regex = new RegExp(`> Le\\s+?${date}\\s+?:`);
-            textArea.value = textArea.value.replace(regex, newQuoteHeader);
+            setTextAreaValue(textArea, textArea.value.replace(regex, newQuoteHeader));
         }, 600);
     }
 
@@ -223,7 +222,9 @@ function addMessagePartialQuoteEvents(allMessages) {
 function addMessageQuoteEvents(allMessages) {
     allMessages.forEach((message) => {
         const quoteButton = message.querySelector('.picto-msg-quote');
-        if (quoteButton) quoteButton.addEventListener('click', () => buildQuoteMessage(message)); // Full quote
+        if (quoteButton) {
+            quoteButton.addEventListener('click', () => buildQuoteMessage(message)); // Full quote
+        }
     });
 }
 
@@ -234,7 +235,8 @@ function addSuggestionEvent(type, element) {
 
     if (!textArea) return;
 
-    const toolbar = document.querySelector('.jv-editor-toolbar');
+    const parentContainer = textArea.parentElement;
+    parentContainer.style.position = 'relative';
 
     // Création du container pour les suggestions
     const autocompleteElement = document.createElement('div');
@@ -418,14 +420,14 @@ function addSuggestions(element = null) {
 }
 
 // paste image noelshack
-
-const textArea = document.querySelector('#message_topic');
-const textAreaMP = document.querySelector('textarea#message');
-
-textArea?.addEventListener('drop', handleDrop);
-textArea?.addEventListener('paste', handlePaste);
-textAreaMP?.addEventListener('drop', handleDrop);
-textAreaMP?.addEventListener('paste', handlePaste);
+function addPasteAndDropEvents() {
+    const textArea = document.querySelector('#message_topic');
+    const textAreaMP = document.querySelector('textarea#message');
+    textArea?.addEventListener('drop', handleDrop);
+    textArea?.addEventListener('paste', handlePaste);
+    textAreaMP?.addEventListener('drop', handleDrop);
+    textAreaMP?.addEventListener('paste', handlePaste);
+}
 
 document.querySelector('.picto-msg-crayon')?.addEventListener('click', () => {
     setTimeout(() => {

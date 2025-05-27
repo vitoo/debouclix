@@ -720,6 +720,7 @@ async function handleTopicMessages() {
 
     setHdAvatars();
     autoRefreshPagination();
+    addPasteAndDropEvents();
 }
 
 async function handleSearch() {
@@ -964,6 +965,7 @@ async function entryPoint() {
                 if (messageOptions.optionEnhanceQuotations) {
                     addSuggestions();
                 }
+                addPasteAndDropEvents();
                 break;
             }
             case 'topicmessages': {
