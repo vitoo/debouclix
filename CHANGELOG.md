@@ -1,5 +1,9 @@
 # Changelog Débouclix (le fork)
 
+## [2.60.13] (04/06/2025)
+
+- Fix paste image
+
 ## [2.60.12] (25/05/2025)
 
 - Fix gifs 
