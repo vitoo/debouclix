@@ -1155,13 +1155,27 @@ function updateForumReactionsTheme() {
     });
 }
 
+function getForumReactionMessageId(messageElement) {
+    if (!messageElement) return null;
+    const direct = messageElement.getAttribute('data-id');
+    if (direct) return direct;
+    // New JVC DOM: id="message-<id>" on the .messageUser node or its parent wrapper
+    const idHolder = messageElement.id ? messageElement : messageElement.closest('[id^="message-"]');
+    const m = idHolder?.id?.match(/^message-?(\d+)$/);
+    return m ? m[1] : null;
+}
+
 function attachForumReactionUI(messageElement) {
-    const messageId = messageElement.getAttribute('data-id');
+    const messageId = getForumReactionMessageId(messageElement);
     if (!messageId) return;
     if (messageElement.querySelector('.deboucled-forum-reaction-add-btn')) return;
 
-    // Barre de réactions sous le message
-    const conteneurMessage = messageElement.querySelector('.conteneur-message');
+    // Barre de réactions sous le message. Ancien DOM : .conteneur-message ;
+    // nouveau DOM (avril 2026) : .messageUser__main / .messageUser__card.
+    const conteneurMessage = messageElement.querySelector('.conteneur-message')
+        || messageElement.querySelector('.messageUser__main')
+        || messageElement.querySelector('.messageUser__card')
+        || messageElement;
     if (!conteneurMessage) return;
 
     const reactionsBar = document.createElement('div');
@@ -1193,7 +1207,7 @@ async function initForumReactions(allMessages) {
     const messageIds = [];
     for (const msg of allMessages) {
         attachForumReactionUI(msg);
-        const id = msg.getAttribute('data-id');
+        const id = getForumReactionMessageId(msg);
         if (id) messageIds.push(Number(id));
     }
 

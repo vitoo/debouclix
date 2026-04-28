@@ -68,7 +68,7 @@ async function processDecensuredMessage(msgElement, decensuredMsg) {
         }
     }
 
-    const contentElement = msgElement.querySelector('.message-content, .text-enrichi-forum, .messageUser__content');
+    const contentElement = msgElement.querySelector(JVC_SEL.messageContent) || msgElement.querySelector('.message-content, .text-enrichi-forum, .messageUser__content');
     if (!contentElement) return;
 
     const originalContentsContainer = document.createElement("div");
@@ -390,7 +390,8 @@ async function handleJvChatDecensuredQuote(jvchatElement, decensuredMsg) {
 
 function getCurrentMessageContent(msgElement, decensuredMsg) {
     const realContentDiv = msgElement.querySelector('.deboucled-decensured-content');
-    const originalContent = msgElement.querySelector('.message-content p, .text-enrichi-forum p, .messageUser__content p');
+    const contentRoot = msgElement.querySelector(JVC_SEL.messageContent) || msgElement.querySelector('.message-content, .text-enrichi-forum, .messageUser__content');
+    const originalContent = contentRoot?.querySelector(':scope > p, :scope .deboucled-decensured-original-content-container p, p') || contentRoot;
 
     if (realContentDiv && realContentDiv.style.display !== 'none') {
         return decensuredMsg.message_real_content;

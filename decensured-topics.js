@@ -297,11 +297,18 @@ function markTopicAsDecensured(topicElement, topicData) {
 
     const hasRealTitle = topicData.topic_name_real && topicData.topic_name_real !== topicData.topic_name_fake;
     if (hasRealTitle) {
-        link.textContent = topicData.topic_name_real;
+        // New JVC DOM (April 2026): the title text lives in a child span;
+        // overwriting link.textContent would wipe the marker icon and span.
+        const subjectTextSpan = link.querySelector('.tablesForum__subjectText');
+        if (subjectTextSpan) {
+            subjectTextSpan.textContent = topicData.topic_name_real;
+        } else {
+            link.textContent = topicData.topic_name_real;
+        }
         link.title = `Titre réel : ${topicData.topic_name_real}\nTitre de couverture : ${topicData.topic_name_fake || topicData.topic_name}`;
     }
 
-    const folderIcon = topicListItem.querySelector('.icon-topic-folder, .topic-img, .tablesForum__cellPicto');
+    const folderIcon = topicListItem.querySelector('.tablesForum__subjectMarkerIcon, .icon-topic-folder, .topic-img, .tablesForum__cellPicto');
     if (folderIcon) {
         folderIcon.classList.add('deboucled-decensured-topic-icon');
         folderIcon.title = 'Topic Décensured';

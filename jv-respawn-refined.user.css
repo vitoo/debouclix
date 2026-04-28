@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           JV Respawn Refined
 @namespace      deboucledjvcom
-@version        1.5.0
+@version        1.5.1
 @description    JV Respawn Refined
 @author         Rand0max
 ==/UserStyle== */
@@ -21,23 +21,25 @@
   }
 
   .titleMessagesUsers__header {
-    margin-bottom: 1.1rem;
+    margin-bottom: 1rem;
+    margin-top: 0.4rem;
   }
 
   .container__navTop {
-    margin-bottom: 1.1rem;
+    display: none;
+    margin-bottom: 1rem;
   }
 
   .buttonsNavbar__sticky {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .container__pagination {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .tablesForum__bodyRow {
-    padding: 0.4rem;
+    padding: 0.3rem;
     padding-left: var(--tables-forums-row-padding-left);
     font-size: 0.9rem;
   }
