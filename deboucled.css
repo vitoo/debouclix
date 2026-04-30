@@ -1940,11 +1940,11 @@ body.deboucled-dark-theme .deboucled-ux-help strong {
 }
 .messageUser__profil > .messageUser__level {
   order: 10;
-  flex-basis: 100%;
+  flex-basis: auto;
 }
 .messageUser__profil > .messageUser__date {
   order: 11;
-  flex-basis: 100%;
+  flex-basis: auto;
 }
 .messageUser__profil .deboucled-badge-container,
 .messageUser__profil .deboucled-badge {
