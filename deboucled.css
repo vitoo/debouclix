@@ -1940,7 +1940,7 @@ body.deboucled-dark-theme .deboucled-ux-help strong {
 }
 .messageUser__profil > .messageUser__level {
   order: 10;
-  flex-basis: auto;
+  flex-basis: 100%;
 }
 .messageUser__profil > .messageUser__date {
   order: 11;
@@ -1961,6 +1961,26 @@ body.deboucled-dark-theme .deboucled-ux-help strong {
   justify-content: center;
   margin: 0 0.2rem;
   cursor: pointer;
+}
+
+.messageUser__inlineActions .deboucled-blacklist-author-button,
+.messageUser__inlineActions span.picto-msg-tronche.deboucled-blacklist-author-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 0.4rem;
+  vertical-align: middle;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.messageUser__inlineActions .deboucled-blacklist-author-button:hover,
+.messageUser__inlineActions span.picto-msg-tronche.deboucled-blacklist-author-button:hover {
+  opacity: 1;
 }
 
 .buttonsNavbar {

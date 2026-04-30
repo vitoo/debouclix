@@ -244,9 +244,19 @@ function upgradeJvcBlacklistButton(messageElement, author, optionShowJvcBlacklis
 
     let dbcBlacklistButton = buildDeboucledBlacklistButton(author, () => { window.location.reload(); });
 
+    // New JVC layout (April 2026): inline actions next to "Citer le message" button.
+    // The native "Blacklister" button is now hidden inside the "..." popup, so we
+    // anchor our button to the visible inline quote action instead.
+    const inlineQuoteButton = messageElement.querySelector('.messageUser__inlineActions .messageUser__action[title*="Citer"], .messageUser__inlineActions .messageUser__action[title*="Cite"]');
     let jvcBlacklistButton = messageElement.querySelector('span.picto-msg-tronche, .messageUser__action[title*="Blacklist"]');
     let logged = (jvcBlacklistButton !== null);
-    if (logged) insertAfter(dbcBlacklistButton, jvcBlacklistButton);
+
+    if (inlineQuoteButton) {
+        insertAfter(dbcBlacklistButton, inlineQuoteButton);
+    }
+    else if (logged) {
+        insertAfter(dbcBlacklistButton, jvcBlacklistButton);
+    }
     else {
         const messageOptionsElement = messageElement.querySelector(JVC_SEL.messageOptions);
         if (messageOptionsElement) {

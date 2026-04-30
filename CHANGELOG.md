@@ -1,5 +1,8 @@
 # Changelog Déboucled
 
+## [2.80.5] (30/04/2026)
+- Corrections visuelles mineures (Rand0max)
+
 ## [2.80.4] (28/04/2026)
 - Corrections diverses dans Décensured (Rand0max)
 
