@@ -938,14 +938,20 @@ function createSmoothScroll(handleMessageCallback) {
     const forumContainer = document.querySelector('#forum-main-col');
     const allPagi = document.querySelectorAll(JVC_SEL.paginationContainer);
     const bottomPagi = allPagi[allPagi.length - 1];
+    const messagesContainerEl = document.querySelector(JVC_SEL.messagesContainer);
     const blocFormulaire = document.querySelector(JVC_SEL.topicBlocFormulaire);
 
-    if (!bottomPagi || !forumContainer || !blocFormulaire) return;
+    if (!bottomPagi || !forumContainer || !blocFormulaire || !messagesContainerEl) return;
 
     blocFormulaire.style.display = 'none';
 
     const loaderStatus = buildLoaderStatus();
     forumContainer.appendChild(loaderStatus);
+
+    // Determine whether pagination lives inside the messages container (old DOM)
+    // or outside it (new DOM). Appended content must stay inside the container
+    // so that InfiniteScroll detects the increased height and stops triggering.
+    const pagiInsideContainer = messagesContainerEl.contains(bottomPagi);
 
     function getInfScrollPath() {
         const nextPageId = initialPageId + this.pageIndex;
@@ -966,11 +972,20 @@ function createSmoothScroll(handleMessageCallback) {
 
         const separator = document.createElement('div');
         separator.className = 'deboucled-message-separator';
-        bottomPagi.insertAdjacentElement('beforebegin', separator);
+
+        if (pagiInsideContainer) {
+            bottomPagi.insertAdjacentElement('beforebegin', separator);
+        } else {
+            messagesContainerEl.appendChild(separator);
+        }
 
         allMessages.forEach(m => {
             const fixedMessage = fixMessageJvCare(m);
-            bottomPagi.insertAdjacentElement('beforebegin', fixedMessage);
+            if (pagiInsideContainer) {
+                bottomPagi.insertAdjacentElement('beforebegin', fixedMessage);
+            } else {
+                messagesContainerEl.appendChild(fixedMessage);
+            }
             handleMessageCallback(fixedMessage);
         });
 
