@@ -713,34 +713,53 @@ function addPrevisualizeTopicEvent(topics) {
         previewDiv.appendChild(topicContent);
     }
 
+    // Event delegation on the topic list container so events survive JVC hydration
+    // (js-hybrid-component re-renders wipe inline event handlers).
+    const topicListContainer = document.querySelector(JVC_SEL.topicListContainer);
+    if (topicListContainer && !topicListContainer.dataset.deboucledPreviewDelegation) {
+        topicListContainer.dataset.deboucledPreviewDelegation = '1';
+        topicListContainer.addEventListener('pointerenter', (e) => {
+            const previewCol = e.target.closest('.deboucled-topic-preview-col');
+            if (!previewCol) return;
+            const previewDiv = previewCol.querySelector('.deboucled-preview-content');
+            const topicUrl = previewCol.dataset.topicUrl;
+            if (previewDiv && topicUrl) onPreviewHover(previewCol, topicUrl, previewDiv);
+        }, true);
+        topicListContainer.addEventListener('pointerleave', (e) => {
+            const previewCol = e.target.closest('.deboucled-topic-preview-col');
+            if (!previewCol) return;
+            previewCol.classList.toggle('active', false);
+        }, true);
+        topicListContainer.addEventListener('touchstart', (e) => {
+            const previewCol = e.target.closest('.deboucled-topic-preview-col');
+            if (!previewCol) return;
+            const previewDiv = previewCol.querySelector('.deboucled-preview-content');
+            const topicUrl = previewCol.dataset.topicUrl;
+            if (previewDiv && topicUrl) onPreviewHover(previewCol, topicUrl, previewDiv);
+        }, true);
+        topicListContainer.addEventListener('touchend', (e) => {
+            const previewCol = e.target.closest('.deboucled-topic-preview-col');
+            if (!previewCol) return;
+            previewCol.classList.toggle('active', false);
+        }, true);
+    }
+
     topics.slice(1).forEach(function (topic) {
         const topicTitleElement = topic.querySelector(JVC_SEL.topicTitle);
         if (!topicTitleElement) return;
         const topicUrl = topicTitleElement.getAttribute('href');
+        const topicImg = topic.querySelector(JVC_SEL.topicImg);
 
-        // let previewRootElement = document.createElement('a');
-        // previewRootElement.setAttribute('href', topicUrl);
         const previewRootElement = document.createElement('span');
         previewRootElement.setAttribute('class', 'deboucled-topic-preview-col');
+        previewRootElement.dataset.topicUrl = topicUrl;
         previewRootElement.innerHTML = '<svg viewBox="0 0 30 30" id="deboucled-preview-logo" class="deboucled-logo-preview"><use href="#previewlogo"/></svg>';
-        const topicImg = topic.querySelector(JVC_SEL.topicImg);
         insertAfter(previewRootElement, topicImg);
 
         const previewSpinnerElement = document.createElement('div');
         previewSpinnerElement.className = 'deboucled-preview-content bloc-message-forum';
         previewSpinnerElement.innerHTML = '<span class="deboucled-preview-spinner deboucled-spinner active"/>';
-        previewSpinnerElement.onclick = (e) => e.preventDefault();
         previewRootElement.appendChild(previewSpinnerElement);
-
-        const onPreviewStart = () => onPreviewHover(previewRootElement, topicUrl, previewSpinnerElement);
-        const onPreviewEnd = () => previewRootElement.classList.toggle('active', false);
-
-        // For mobile
-        topicImg.ontouchstart = onPreviewStart;
-        topicImg.ontouchend = onPreviewEnd;
-        // For everything else
-        previewRootElement.onpointerenter = onPreviewStart;
-        previewRootElement.onpointerleave = onPreviewEnd;
     });
 }
 

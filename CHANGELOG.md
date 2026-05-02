@@ -1,5 +1,8 @@
 # Changelog Déboucled
 
+## [2.80.6] (02/04/2026)
+- Corrections de la prévisualisation des topics (Rand0max)
+
 ## [2.80.5] (30/04/2026)
 - Corrections visuelles mineures (Rand0max)
 
